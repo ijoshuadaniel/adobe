@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+:root {
+  --primary: #1363df;
+  --white: #ffffff;
+  --black: #06283d;
+  --lightBlue: #dff6ff;
+  --heroBg: #1b252c;
+  --checkbox: #181c24;
+  --border: #d1d3d6;
+  --resultColor: #172026;
+  --borderSelect: #b5b7bc;
+  --borderFooter: #e5e5e7;
+  --footerText: #545d63;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -23,4 +39,342 @@
   src: url("/fonts/MuliBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "ProximaNova";
+  src: url("/fonts/ProximaNova.otf") format("opentype");
+}
+
+.header {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--primary);
+  padding: 0 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-family: "ProximaNova", sans-serif;
+  font-weight: 400;
+  color: var(--white);
+  font-size: 30px;
+  letter-spacing: 1rem;
+}
+
+.header__nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header__nav-item {
+  list-style: none;
+  position: relative;
+}
+
+.header__nav-item-selected {
+  width: 100%;
+  height: 5px;
+  background-color: var(--lightBlue);
+  position: absolute;
+  bottom: -24px;
+}
+
+.header__nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
+}
+
+.header__cart {
+  position: relative;
+}
+
+.header__cartIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.header__cartCounter {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  width: 14px;
+  height: 15px;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  right: -5px;
+  top: -2px;
+}
+
+.hero {
+  display: flex;
+}
+
+.hero__left {
+  font-family: "Source Serif 4", serif;
+  font-weight: 400;
+  width: 30%;
+  text-align: center;
+  background-color: var(--heroBg);
+  color: var(--white);
+  font-size: 42px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__left__box {
+  height: 8px;
+  width: 30%;
+  background-color: var(--primary);
+  margin-top: 2rem;
+}
+
+.hero__right {
+  width: 70%;
+}
+
+.hero__right__banner {
+  width: 100%;
+}
+
+.listing {
+  margin: 2rem 4rem;
+  display: flex;
+}
+
+.listing__left {
+  width: 30%;
+  margin-right: 2rem;
+}
+
+.listing__breadcrumb {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.listing__filterHead {
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 2rem 0;
+}
+
+.listing__category {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  margin-right: 2rem;
+}
+
+.listing__category-name {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.listing__category-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.listing__category-checkbox {
+  width: 24px;
+  height: 24px;
+  margin: 0.5rem 0;
+  border: 1px solid var(--border);
+}
+
+.listing__category-label {
+  text-transform: capitalize;
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: var(--checkbox);
+}
+
+.listing__category-search {
+  width: 100%;
+  padding: 1rem;
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.noproducts {
+  margin-bottom: 1rem;
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.listing__right {
+  width: 70%;
+}
+
+.listing__right-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listing__rigth-head_total {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--resultColor);
+}
+
+.listing__rigth-head_select {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--resultColor);
+  border: 1px solid var(--borderSelect);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.listing__right-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin-bottom: 1rem 0;
+}
+
+.listing__right-products_item {
+  padding: 0.5rem;
+  width: 300px;
+  height: 400px;
+  margin-top: 1rem;
+}
+
+.listing__right-product-img {
+  width: 200px;
+  height: 260px;
+}
+
+.listing__right-product-title {
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--resultColor);
+}
+
+.listing__right-product-price {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--resultColor);
+}
+
+.listing__right-product-fav {
+  width: 24px;
+  height: 24px;
+}
+
+.listing__loadMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing__loadMore-btn {
+  padding: 1rem;
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.footer__container {
+  margin-top: 2rem;
+  border-top: 4px solid var(--borderFooter);
+  border-bottom: 4px solid var(--borderFooter);
+}
+
+.footer__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 4rem;
+}
+
+.footer__main-item {
+  width: 25%;
+}
+
+.footer__main-item-h3 {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--resultColor);
+  margin-bottom: 1rem;
+}
+
+.footer__main-item-p {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--footerText);
+  margin-bottom: 0.3rem;
+}
+
+.footer__main-item_social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer__copyrights {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 4rem;
+}
+
+.footer__copyrigths-logo {
+  font-family: "ProximaNova", sans-serif;
+  font-weight: 400;
+  color: var(--checkbox);
+  font-size: 30px;
+  letter-spacing: 1rem;
+}
+
+.footer__copyrigths-text {
+  font-family: "ProximaNova", sans-serif;
+  font-weight: 400;
+  color: var(--resultColor);
+  font-size: 14px;
+}
+
+.footer__copyrigths-link {
+  font-family: "ProximaNova", sans-serif;
+  font-weight: 400;
+  color: var(--resultColor);
+  font-size: 14px;
+  text-decoration: underline;
+  margin-left: 1rem;
 }

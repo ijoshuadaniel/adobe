@@ -1,14 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VENIA - Your Shopping Site.</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="header"></header>
 
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VENIA - Your Shopping Site.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__logo">VENIA</h1>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="/" class="header__nav-link">Home</a>
+          <div class="header__nav-item-selected"></span>
+        </li>
+        <li class="header__nav-item">
+          <a href="/" class="header__nav-link">Women</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="/" class="header__nav-link">Men</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="/" class="header__nav-link">Smart Gear</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="/" class="header__nav-link">Accessories</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cart">
+      <img class="header__cartIcon" src="/icons/shoppingbag.svg" alt="shoppingbag" />
+      <span class="header__cartCounter">10</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__left">
+      <h1>Men’s Outerwear</h1>
+      <div class="hero__left__box"></div>
+    </div>
+    <div class="hero__right">
+      <img class="hero__right__banner" src="/assets/banner.png" alt="banner image" />
+    </div>
+  </section>
+
+  <section class="listing">
+    <section class="listing__left">
+      <p class="listing__breadcrumb">Clothing / Women’s / Outerwear
+        </div>
+      <h2 class="listing__filterHead">Filters</h2>
+      <div class="listing__category">
+        <h3 class="listing__category-name">Search</h3>
+        <input type="text" oninput="onSearch(event)" class="listing__category-search" />
+      </div>
+      <div class="listing__category">
+        <h3 class="listing__category-name">Price Filter : $<span id="rangeValue">0 - 1000</h3>
+        <input type="range" id="priceRange" min="0" max="1000" value="1000" step="10" oninput="updateRangeValue()">
+      </div>
+      <div class="listing__category">
+        <h3 class="listing__category-name">Categories</h3>
+        <div class="listing__category-list"></div>
+      </div>
+    </section>
+    <section class="listing__right">
+      <div class="listing__right-head">
+        <p class="listing__rigth-head_total"></p>
+        <select class="listing__rigth-head_select" id="sortProducts" onchange="sortProducts()">
+          <option value="" selected disabled>Sort by Price</option>
+          <option value="Default">Default</option>
+          <option value="Price Low to High">Price Low to High</option>
+          <option value="Price High to Low">Price High to Low</option>
+        </select>
+      </div>
+      <div class="listing__right-products"></div>
+      <div class="listing__loadMore">
+        <button class="listing__loadMore-btn" onclick="loadMore()" disabled>Load More</button>
+      </div>
+    </section>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__main">
+        <div class="footer__main-item">
+          <h3 class="footer__main-item-h3">Account</h3>
+          <p class="footer__main-item-p">Sign In</p>
+          <p class="footer__main-item-p">Register</p>
+          <p class="footer__main-item-p">Order Status</p>
+        </div>
+        <div class="footer__main-item">
+          <h3 class="footer__main-item-h3">About Us</h3>
+          <p class="footer__main-item-p">Our Story</p>
+          <p class="footer__main-item-p">Careers</p>
+        </div>
+        <div class="footer__main-item">
+          <h3 class="footer__main-item-h3">Help</h3>
+          <p class="footer__main-item-p">Contact Us</p>
+          <p class="footer__main-item-p">Order Status</p>
+          <p class="footer__main-item-p">Returns</p>
+        </div>
+        <div class="footer__main-item">
+          <h3 class="footer__main-item-h3">Follow Us!</h3>
+          <p class="footer__main-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore.</p>
+          <div class="footer__main-item_social">
+            <img class="footer__main-item_icons" src="/icons/instagram.png" alt="instagram-image" />
+            <img class="footer__main-item_icons" src="/icons/facebook.png" alt="facebook-image" />
+            <img class="footer__main-item_icons" src="/icons/twitter.png" alt="twitter-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__copyrights">
+      <div class="footer__copyrigths-item">
+        <h1 class="footer__copyrigths-logo">VENIA
+      </div>
+    <div class="footer__copyrigths-item">
+      <p class="footer__copyrigths-text">© Company Name Address Ave, City Name, State ZIP</p>
+    </div>
+    <div class="footer__copyrigths-item">
+      <a class="footer__copyrigths-link" href="/">Terms of Use</a>
+      <a class="footer__copyrigths-link" href="/">Privacy Policy</a>
+    </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+
 </html>
