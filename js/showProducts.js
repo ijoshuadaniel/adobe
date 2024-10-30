@@ -31,7 +31,7 @@ class ShowProducts {
             products.title
           )}</h2>
           <p class="listing__right-product-price" >$${products.price}</p>
-          <img class="listing__right-product-fav"  src="adobe/icons/heart.jpg"/>
+          <img class="listing__right-product-fav"  src="/adobe/icons/heart.jpg"/>
         </div>`;
       });
     } else {
