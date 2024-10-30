@@ -6,6 +6,46 @@ let category = [];
 let minPrice = 0;
 let maxPrice = 0;
 let categoryFilter = [];
+let showMobileMenu = false;
+let showFilters = false;
+let showSortProducts = false;
+
+const setShowSort = () => {
+  const sortProductElement = document.querySelector(".listing__right-head");
+  if (showSortProducts) {
+    sortProductElement.classList.remove("listing__right-head-mobile");
+  } else {
+    sortProductElement.classList.add("listing__right-head-mobile");
+  }
+  showSortProducts = !showSortProducts;
+};
+
+const setShowFilters = () => {
+  const filterElement = document.querySelector(".listing__left");
+  if (showFilters) {
+    filterElement.classList.remove("listing__left-mobile");
+  } else {
+    filterElement.classList.add("listing__left-mobile");
+  }
+  showFilters = !showFilters;
+};
+
+const hamburgerClick = () => {
+  const navElement = document.querySelector(".header__nav");
+  if (showMobileMenu) {
+    navElement.classList.remove("header__mobile_nav");
+  } else {
+    navElement.classList.add("header__mobile_nav");
+  }
+  showMobileMenu = !showMobileMenu;
+};
+
+const trimTittle = (title) => {
+  if (title.length > 30) {
+    return title.slice(0, 25) + "...";
+  }
+  return title;
+};
 
 const sortProducts = () => {
   const elementValue = document.getElementById("sortProducts").value;
@@ -48,13 +88,18 @@ const loadMore = () => {
 
 const setProducts = (data) => {
   const element = document.querySelector(".listing__right-products");
+  element.innerHTML = "";
   const loadMore = document.querySelector(".listing__loadMore-btn");
   let html = "";
   if (data.length > 0) {
     data.slice(0, limit).forEach((products) => {
       html += `<div class="listing__right-products_item">
-          <img class="listing__right-product-img" src="${products.image}" alt="image for ${products.image}"/>
-          <h2 class="listing__right-product-title" >${products.title}</h2>
+          <img class="listing__right-product-img" src="${
+            products.image
+          }" alt="image for ${products.image}"/>
+          <h2 class="listing__right-product-title" >${trimTittle(
+            products.title
+          )}</h2>
           <p class="listing__right-product-price" >$${products.price}</p>
           <img class="listing__right-product-fav"  src="/icons/heart.jpg"/>
         </div>`;
@@ -82,6 +127,8 @@ const setCategory = () => {
       </div>`;
   });
   document.querySelector(".listing__rigth-head_total").innerHTML =
+    resultLength + " Results";
+  document.querySelector(".listing__rigth-head_total-mobile").innerHTML =
     resultLength + " Results";
   element.innerHTML = html;
 };
@@ -123,8 +170,21 @@ const setData = (data) => {
   setProducts(data);
 };
 
+const showShimmer = () => {
+  let html = ``;
+  for (let index = 0; index < 10; index++) {
+    html += ` <div class="listing-shimmer">
+    <div class="shimmer image"></div>
+    <div class="shimmer title"></div>
+    <div class="shimmer price"></div>
+</div>`;
+  }
+  document.querySelector(".listing__right-products").innerHTML = html;
+};
+
 const fetchProducts = async () => {
   try {
+    showShimmer();
     const response = await fetch("https://fakestoreapi.com/products");
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -132,9 +192,10 @@ const fetchProducts = async () => {
     const result = await response.json();
     data = result;
     setData(data);
-    console.log(data);
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
+  } finally {
+    loading = false;
   }
 };
 
