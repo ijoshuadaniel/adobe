@@ -21,7 +21,7 @@ class AppFunctions {
 
   hamburgerClick = () => {
     const navElement = document.querySelector(".header__nav");
-    if (showMobileMenu) {
+    if (appState.showMobileMenu) {
       navElement.classList.remove("header__mobile_nav");
     } else {
       navElement.classList.add("header__mobile_nav");
