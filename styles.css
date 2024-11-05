@@ -326,7 +326,7 @@
 
 .footer__main {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   margin: 2rem 4rem;
 }
