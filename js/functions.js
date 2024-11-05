@@ -40,14 +40,14 @@ class AppFunctions {
     const elementValue = document.getElementById("sortProducts").value;
     if (elementValue === "Price Low to High") {
       appState.filterData = appState.data
-        .slice(0, limit)
+        .slice(0, appState.limit)
         .sort((a, b) => a.price - b.price);
     } else if (elementValue === "Price High to Low") {
       appState.filterData = appState.data
-        .slice(0, limit)
+        .slice(0, appState.limit)
         .sort((a, b) => b.price - a.price);
     } else {
-      appState.filterData = appState.data.slice(0, limit);
+      appState.filterData = appState.data.slice(0, appState.limit);
     }
     showProducts.setProducts(appState.filterData);
   };
